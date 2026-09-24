@@ -1,2 +1,15 @@
-# Project exclude paths
-/out/
+# Build output
+target/
+out/
+*.class
+
+# Databases (generate locally with DataGenerator)
+*.sqlite
+*.sqlite-journal
+*.db
+
+# IDE and OS files
+.idea/
+*.iml
+.vscode/
+.DS_Store
