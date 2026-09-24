@@ -1,4 +1,4 @@
-## Java/JDBC loyalty engine on SQLite: merge sort + O(log n) binary search scoring 5.7M transactions
+## Java/JDBC loyalty engine on SQLite with merge sort and $O(logN)$ binary search scoring 5.7M transactions
 
 This project computes loyalty points for a payment provider's customer club and draws a lottery winner from its top-scoring members. It reads cardholders and payment transactions from SQLite over JDBC, matches each transaction to its cardholder through a merge-sorted index with binary-search lookup, applies per-category scoring rules with caps, ranks cardholders by total points, and draws a winner uniformly from the top 10%.
 
