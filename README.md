@@ -1,6 +1,8 @@
-## Java/JDBC loyalty engine on SQLite with merge sort and $O(logN)$ binary search scoring 5.7M transactions
+# Punchcard
 
-This project computes loyalty points for a payment provider's customer club and draws a lottery winner from its top-scoring members. It reads cardholders and payment transactions from SQLite over JDBC, matches each transaction to its cardholder through a merge-sorted index with binary-search lookup, applies per-category scoring rules with caps, ranks cardholders by total points, and draws a winner uniformly from the top 10%.
+A Java loyalty engine for scoring transactions, ranking cardholders, and drawing reward winners.
+
+**Punchcard** computes loyalty points for a payment provider's customer club and draws a lottery winner from its top-scoring members. It reads cardholders and payment transactions from SQLite over JDBC, matches each transaction to its cardholder through a merge-sorted index with binary-search lookup, applies per-category scoring rules with caps, ranks cardholders by total points, and draws a winner uniformly from the top 10%.
 
 On a synthetic dataset of 500,000 cardholders and 5.7 million transactions, a full run takes about 6.2 seconds on a single vCPU, of which 2.1 seconds is computation and the rest is reading from SQLite.
 
@@ -25,7 +27,7 @@ Scoring results were validated against an independent pure-SQL reference impleme
 ## Pipeline
 
 ```mermaid
-flowchart LR
+flowchart TD
     A[(SQLite)] -->|JDBC, read-only| B[Load cardholders]
     A -->|JDBC, read-only| C[Load transactions]
     B --> D[Merge sort by card code]
